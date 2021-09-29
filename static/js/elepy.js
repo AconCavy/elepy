@@ -9,7 +9,7 @@ function onSubmit() {
         body: json
     }
 
-    fetch("http://localhost:5000/api", request)
+    fetch("http://127.0.0.1:5000/api", request)
         .then(result => result.text())
         .then(data => {
             console.log(data);

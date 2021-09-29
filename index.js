@@ -18,7 +18,7 @@ app.on('ready', () => {
 
         const openWindow = () => {
             window = new BrowserWindow({width: 400, height: 300});
-            window.loadURL('http://localhost:5000');
+            window.loadURL('http://127.0.0.1:5000/');
 
             window.on('closed', () => {
                 electron.session.defaultSession.clearCache();
