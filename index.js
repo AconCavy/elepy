@@ -1,31 +1,28 @@
-const electron = require('electron');
-const app = electron.app;
-const BrowserWindow = electron.BrowserWindow;
-
+const {app, BrowserWindow} = require('electron');
 const {PythonShell} = require('python-shell');
 
+let shell;
 
-app.on('window-all-closed', () => {
-        app.quit();
-    }
-);
+function createWindow() {
+    const window = new BrowserWindow({width: 400, height: 300});
+    window.loadURL('http://127.0.0.1:5000');
+}
 
-app.on('ready', () => {
-        PythonShell.run('app.py', null, (err) => {
-            if (err) throw err;
-            console.log(err);
-        });
+app.on('will-finish-launching', function () {
+    shell = PythonShell.run('app.py', null, function (err) {
+        if (err) throw err;
+    });
+});
 
-        const openWindow = () => {
-            window = new BrowserWindow({width: 400, height: 300});
-            window.loadURL('http://127.0.0.1:5000/');
+app.on('ready', function () {
+    createWindow();
+});
 
-            window.on('closed', () => {
-                electron.session.defaultSession.clearCache();
-                window = null;
-            })
-        }
+app.on('activate', function () {
+    if (BrowserWindow.getAllWindows().length === 0) createWindow();
+});
 
-        openWindow();
-    }
-)
+app.on('window-all-closed', function () {
+    shell?.kill();
+    if (process.platform !== 'darwin') app.quit();
+});
