@@ -17,3 +17,8 @@ function onSubmit() {
             result.innerHTML = data;
         });
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('submit')
+        .addEventListener('click', onSubmit);
+});
