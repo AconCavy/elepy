@@ -9,3 +9,5 @@ if not exist %venv_name% (
     pip install -r requirements.txt
     deactivate
 )
+
+npm install

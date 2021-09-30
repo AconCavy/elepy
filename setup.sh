@@ -12,3 +12,5 @@ if [ ! -d $VENV_NAME ]; then
   pip install -r requirements.txt
   deactivate
 fi
+
+npm install
