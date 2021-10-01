@@ -3,13 +3,18 @@ const {PythonShell} = require('python-shell');
 const electron = require("electron");
 
 let appPath = app.getAppPath();
-let pythonPath = `${appPath}/venv/${process.platform === 'win32' ? 'Scripts' : 'bin'}/python`
+let isWin = process.platform === 'win32';
+let pythonPath = `${appPath}/venv/${isWin ? 'Scripts' : 'bin'}/python`;
+let scriptPath = `${appPath}/elepy/server`;
+
+process.env['PYTHONPATH'] = `${process.env['PYTHONPATH']}${isWin ? ';' : ':'}${appPath}`;
 
 let options = {
-  pythonPath: pythonPath
+    pythonPath: pythonPath,
+    scriptPath: scriptPath
 };
 
-let shell = PythonShell.run(`${appPath}/app.py`, options, function (err) {
+let shell = PythonShell.run('app.py', options, function (err) {
     if (err) electron.dialog.showErrorBox("error", err.toString());
 });
 
