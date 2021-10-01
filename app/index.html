@@ -3,35 +3,34 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://cdn.jsdelivr.net;">
-    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self' https://cdn.jsdelivr.net;">
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self' https://cdn.jsdelivr.net; connect-src 'self' http://127.0.0.1:5000;">
+    <meta http-equiv="X-Content-Security-Policy"
+          content="default-src 'self' https://cdn.jsdelivr.net; connect-src 'self' http://127.0.0.1:5000;">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
-    <script type="text/javascript" src="/static/js/elepy.js"></script>
-
-    <title>elepy</title>
+    <title>ELEPY</title>
 </head>
 <body>
 
 <div class="container">
-    <h1>Hello World!</h1>
+    <h1>Hello ELEPY!</h1>
 
     <div>
-        <label for="name">Who are you?</label>
-        <input type="text" id="name" pattern="\w+[\w\s]*" required>
+        <button id="directoryPicker">Select Directory</button>
+        <label id="selectedDirectory">No Selected</label>
     </div>
 
     <div>
         <button id="submit">Submit</button>
-    </div>
-
-    <div>
         <label id="result"></label>
     </div>
 
 </div>
+
+<script type="text/javascript" src="renderer.js"></script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"

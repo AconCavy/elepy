@@ -1,13 +1,8 @@
-from flask import Flask, render_template, request
+from flask import Flask, request
 
 from elepy.core import say_hello
 
 app = Flask(__name__)
-
-
-@app.route('/')
-def index():
-    return render_template("index.html")
 
 
 @app.route('/api', methods=["POST"])
