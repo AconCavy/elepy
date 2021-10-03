@@ -1,6 +1,6 @@
 from flask import Flask, request
 
-from elepy.core import say_hello
+from elesk.core import say_hello
 
 app = Flask(__name__)
 

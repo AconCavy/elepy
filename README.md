@@ -1,3 +1,3 @@
-# elepy
+# practice-electron-flask
 
-The elepy is a practice app of flask and electron.
+A practice app of electron and flask.

@@ -5,7 +5,7 @@ const path = require('path');
 let appPath = app.getAppPath();
 let isWin = process.platform === 'win32';
 let pythonPath = `${appPath}/venv/${isWin ? 'Scripts' : 'bin'}/python`;
-let scriptPath = `${appPath}/elepy/server`;
+let scriptPath = `${appPath}/elesk/server`;
 
 process.env['PYTHONPATH'] = `${process.env['PYTHONPATH']}${isWin ? ';' : ':'}${appPath}`;
 
