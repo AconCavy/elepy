@@ -10,7 +10,7 @@
   "author": "AconCavy",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^15.0.0",
+    "electron": "^15.3.5",
     "electron-packager": "^15.4.0"
   },
   "dependencies": {
